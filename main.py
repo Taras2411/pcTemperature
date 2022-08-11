@@ -121,4 +121,3 @@ def getGPU():
 
 # for z in c.Hardware[1].Sensors:
 #     print(z.Identifier, z.Value)
-
