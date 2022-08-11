@@ -33,13 +33,15 @@ class CPU(BaseModel):
             newCore = CPUcore(index=i, temperature=0, load=0, frequency=0)
             newCore.update()
             self.allCores.append(newCore)
-            self.avarageTemperature == self.getAvarageTemperature()
-            self.avarageLoad == self.getAvarageLoad()
+            self.avarageTemperature = self.getAvarageTemperature()
+            self.avarageLoad = self.getAvarageLoad()
 
 
     def update(self):
         for i in self.allCores:
             i.update()
+            self.avarageTemperature = self.getAvarageTemperature()
+            self.avarageLoad = self.getAvarageLoad()
     def getAvarageTemperature(self):
         avarage = 0
         for i in self.allCores:
@@ -117,6 +119,6 @@ def getGPU():
     encoded = jsonable_encoder(gpu)
     return JSONResponse(content=encoded)
 
-for z in c.Hardware[1].Sensors:
-    print(z.Identifier, z.Value)
+# for z in c.Hardware[1].Sensors:
+#     print(z.Identifier, z.Value)
 
